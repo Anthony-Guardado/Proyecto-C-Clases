@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventaMeCF.Controllers
 {
-    [Authorize(Roles = "Administrador")]
-    public class ProductoController : Controller
+	[Authorize(Roles = "Administrador")]
+	public class ProductoController : Controller
     {
         private readonly InventaMeCFContext _context;
 
