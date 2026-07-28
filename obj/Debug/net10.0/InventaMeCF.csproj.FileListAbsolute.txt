@@ -187,3 +187,4 @@ C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\obj\Debug\net10.0\InventaM
 C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\obj\Debug\net10.0\InventaMeCF.genruntimeconfig.cache
 C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\obj\Debug\net10.0\ref\InventaMeCF.dll
 C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\obj\Debug\net10.0\InventaMeCF.sourcelink.json

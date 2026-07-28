@@ -23,19 +23,31 @@ namespace InventaMeCF.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Forma 1 
+            base.OnModelCreating(modelBuilder);
+
+            // Seeds
             modelBuilder.Entity<UnidadMedida>().HasData(
                 new UnidadMedida { Id = 1, Nombre = "Libra" },
                 new UnidadMedida { Id = 2, Nombre = "Kilogramo" }
-                );
-            //Forma 2
+            );
+
             new MarcaSeed(modelBuilder);
-            //Seed de usuarios y roles
             new UsuarioSeed(modelBuilder);
             new RolSeed(modelBuilder);
             new RolAsignadoSeed(modelBuilder);
 
+            // Configuración de relaciones
+            modelBuilder.Entity<RolAsignado>()
+                .HasOne(ra => ra.Usuario)
+                .WithMany(u => u.RolesAsignados)
+                .HasForeignKey(ra => ra.UsuarioId);
+
+            modelBuilder.Entity<RolAsignado>()
+                .HasOne(ra => ra.Rol)
+                .WithMany(r => r.RolesAsignados)
+                .HasForeignKey(ra => ra.RolId);
         }
+
 
     }
 }

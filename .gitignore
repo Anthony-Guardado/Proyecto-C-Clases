@@ -1,2 +1,7 @@
 .appsettings.json
 /Migrations
+.vs/
+bin/
+obj/
+/Repomix
+/appsettings
