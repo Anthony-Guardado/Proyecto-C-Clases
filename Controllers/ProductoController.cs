@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using InventaMeCF.Utilidades;
+
 
 namespace InventaMeCF.Controllers
 {
@@ -16,7 +18,7 @@ namespace InventaMeCF.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int? productoMarca, string cadenaBusqueda)
+        /*public async Task<IActionResult> Index(int? productoMarca, string cadenaBusqueda)
         {
             if (_context.Productos == null || _context.Marcas == null)
             {
@@ -51,6 +53,25 @@ namespace InventaMeCF.Controllers
             };
 
             return View(productoMarcaVM);
+        }*/
+        // GET: Productos
+        public async Task<IActionResult> Index(int pg = 1)
+        {
+            var lista = await _context.Productos.Include(p => p.Marca).ToListAsync();
+            // Inicio paginación.
+            var paginacion = new Paginacion(lista.Count, pg, 1, "Producto", "Index");
+            var data = lista.Skip(paginacion.Salto).Take(paginacion.RegistrosPagina).ToList();
+            this.ViewBag.Paginacion = paginacion;
+            // fin paginación.
+            var productoMarcaVM = new ProductoMarcaViewModel
+            {
+                Marcas = new SelectList(await _context.Marcas.ToListAsync(), "Id", "Name"),
+                Productos = data
+            };
+
+            return View(productoMarcaVM);
         }
+
+
     }
 }
