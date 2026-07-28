@@ -1,0 +1,23 @@
+﻿@model InventaMeCF.Models.Producto
+@if (Model != null)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Nombre</h5>
+            <div>
+                ID: @Model.Id
+            </div>
+            <div>
+                Descripcion: @Model.Descripcion
+            </div>
+            <div>
+                PrecioUnitario: $ @Model.PrecioUnitario
+            </div>
+            <a asp-action="Index" class="btn btn-primary">Ir a la lista de productos</a>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Nos se ha encontrado el producto</h1>
+}

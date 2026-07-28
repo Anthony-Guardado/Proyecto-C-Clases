@@ -1,0 +1,91 @@
+﻿@model IEnumerable<InventaMeCF.Models.Producto>
+@{
+    ViewData["Title"] = "VISTA CREADA DESDE CERO";
+}
+@{
+    <h1>@ViewData["Title"]</h1>
+}
+<h2>Nombre de un campo</h2>
+@Html.DisplayNameFor(model => model.Nombre)
+
+
+
+<h2>Lista de productos</h2>
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault()!.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault()!.Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault()!.PrecioUnitario)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault()!.Marca.Name)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Descripcion</td>
+                    <td>@item.PrecioUnitario.ToString("C2")</td>
+                    <td>@item.Marca.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No se encontraron productos registrados.
+    </div>
+}
+
+
+<hr />
+<h1>Uso de ViewBag</h1>
+<h2>Elementos obtenidos desde el controlador</h2>
+<h6>@ViewBag.Comentario1</h6>
+<h6>@ViewBag.a1</h6>
+<h6>@ViewBag.Meses</h6>
+<h2>Valores del arreglo de números</h2>
+@foreach (var item in ViewBag.a1)
+{
+    <h6>@item</h6>
+}
+
+<ol>
+    @foreach (var mes in ViewBag.Meses)
+    {
+        <li>@mes</li>
+    }
+</ol>
+<h2>Valores hashValue</h2>
+<p>Longitud: @ViewBag.hashValue.Length</p>
+@foreach (var item in ViewBag.hashValue)
+{
+    <h6>@item</h6>
+}
+<h1>Hexadecimal: @ViewBag.hashValueHexadecimal</h1>
+
+<a asp-action="Crear">Nuevo producto</a>
+
+<hr />
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            LISTA DE PRODUCTOS
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Según promedio de precios</h5>
+            <p class="card-text">Utilice esta opción para ver la lista de productos cuyo precio sea menor o mayor que el promedio de precio</p>
+            <a asp-action="ListaPrecioMedio" class="btn btn-danger" asp-route-mayores="false">Menores</a>&nbsp;<a asp-action="ListaPrecioMedio" class="btn btn-success" asp-route-mayores="true">Mayores</a>
+        </div>
+    </div>
+

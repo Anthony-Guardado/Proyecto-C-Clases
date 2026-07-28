@@ -1,0 +1,32 @@
+﻿@model InventaMeCF.Models.Producto
+
+<form asp-action="Crear">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Nombre" class="control-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Descripcion" class="control-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="PrecioUnitario" class="control-label"></label>
+        <input asp-for="PrecioUnitario" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="MarcaId" class="control-label"></label>
+        <select asp-for="MarcaId"
+                asp-items="ViewBag.Marcas"
+                class="form-select">
+            <option value="">Seleccione una marca</option>
+        </select>
+    </div>
+       <br> 
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+
+    
+
+</form>
+
+<a asp-action="Tarjeta" asp-route-id="1">Ver el producto con ID 1</a>

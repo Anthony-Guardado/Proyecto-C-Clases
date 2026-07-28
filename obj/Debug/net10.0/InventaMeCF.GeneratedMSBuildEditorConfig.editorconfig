@@ -1,0 +1,104 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
+build_property.RootNamespace = InventaMeCF
+build_property.RootNamespace = InventaMeCF
+build_property.ProjectDir = C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Anthony\source\repos\InventaMeCF\InventaMeCF
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Acceso/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Producto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Prueba/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Prueba/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Prueba/ListaPrecioMedio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhXExpc3RhUHJlY2lvTWVkaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Prueba/Tarjeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJ1ZWJhXFRhcmpldGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/UnidadMedidas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pZGFkTWVkaWRhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/UnidadMedidas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pZGFkTWVkaWRhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/UnidadMedidas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pZGFkTWVkaWRhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/UnidadMedidas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pZGFkTWVkaWRhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/UnidadMedidas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pZGFkTWVkaWRhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anthony/source/repos/InventaMeCF/InventaMeCF/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-cde4lgmoxs
