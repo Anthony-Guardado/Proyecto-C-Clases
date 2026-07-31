@@ -1,3 +1,4 @@
+using InventaMeCF.Bugus;
 using InventaMeCF.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,12 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate();
 }
 // 👆 Bloque agregado para que se ejecute la migración inicial
-
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<InventaMeCFContext>();
+    context.Database.Migrate();
+    await DbSeeder.SeedAsync(context);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

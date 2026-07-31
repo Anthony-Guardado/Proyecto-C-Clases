@@ -36,7 +36,7 @@ namespace InventaMeCF.Models
             new RolSeed(modelBuilder);
             new RolAsignadoSeed(modelBuilder);
 
-            // Configuración de relaciones
+            /* Configuración de relaciones
             modelBuilder.Entity<RolAsignado>()
                 .HasOne(ra => ra.Usuario)
                 .WithMany(u => u.RolesAsignados)
@@ -45,7 +45,7 @@ namespace InventaMeCF.Models
             modelBuilder.Entity<RolAsignado>()
                 .HasOne(ra => ra.Rol)
                 .WithMany(r => r.RolesAsignados)
-                .HasForeignKey(ra => ra.RolId);
+                .HasForeignKey(ra => ra.RolId); */
         }
 
 

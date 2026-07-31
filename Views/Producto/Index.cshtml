@@ -63,3 +63,14 @@
 
 <!-- Llamado a tu vista parcial de paginación -->
 <partial name="_Paginacion" model="@paginacion" />
+
+<div class="shadow-none p-3 mb-5 bg-light rounded">
+    @{
+        using (Html.BeginForm("ExportarXLSX", "Producto", FormMethod.Post))
+        {
+            <input type="hidden" name="id" value="1" />
+            <button type="submit" class="btn btn-success"><i class="bi bi-filetype-xlsx" style="width: 1em;">&nbsp;Exportar XLSX</i></button>
+        }
+        Html.EndForm();
+    }
+</div>
