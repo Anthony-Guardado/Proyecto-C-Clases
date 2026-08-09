@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DhltUrHWh0M=",
+  "dgSpecHash": "mhaQgdqKhUk=",
   "success": true,
   "projectFilePath": "C:\\Users\\Anthony\\source\\repos\\InventaMeCF\\InventaMeCF\\InventaMeCF.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\Anthony\\.nuget\\packages\\morelinq\\4.4.0\\morelinq.4.4.0.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
+    "C:\\Users\\Anthony\\.nuget\\packages\\questpdf\\2026.7.2\\questpdf.2026.7.2.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\rbush.signed\\4.0.0\\rbush.signed.4.0.0.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",

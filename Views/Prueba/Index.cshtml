@@ -49,6 +49,9 @@ else
 
 
 <hr />
+
+<a asp-controller="Prueba" asp-action="GenerarRolesPdf">Generar Roles PDF</a>
+
 <h1>Uso de ViewBag</h1>
 <h2>Elementos obtenidos desde el controlador</h2>
 <h6>@ViewBag.Comentario1</h6>
@@ -87,5 +90,8 @@ else
             <p class="card-text">Utilice esta opción para ver la lista de productos cuyo precio sea menor o mayor que el promedio de precio</p>
             <a asp-action="ListaPrecioMedio" class="btn btn-danger" asp-route-mayores="false">Menores</a>&nbsp;<a asp-action="ListaPrecioMedio" class="btn btn-success" asp-route-mayores="true">Mayores</a>
         </div>
+
+    
+
     </div>
 

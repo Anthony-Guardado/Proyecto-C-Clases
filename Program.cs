@@ -2,6 +2,7 @@ using InventaMeCF.Bugus;
 using InventaMeCF.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
         option.AccessDeniedPath = "/Home/Privacy";
     });
+
+QuestPDF.Settings.License = LicenseType.Community; // LINEA AGREGADA PARA APLICAR LA LICENCIA.  
 
 var app = builder.Build();
 

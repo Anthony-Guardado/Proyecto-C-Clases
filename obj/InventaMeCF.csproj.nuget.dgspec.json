@@ -76,6 +76,10 @@
               "target": "Package",
               "version": "[9.0.*, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2026.7.2, )"
+            },
             "bogus": {
               "target": "Package",
               "version": "[35.6.5, )"

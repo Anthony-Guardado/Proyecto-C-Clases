@@ -1,10 +1,13 @@
 ﻿using InventaMeCF.Models;
+using InventaMeCF.Pdf;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 
 namespace InventaMeCF.Controllers
 {
@@ -16,6 +19,7 @@ namespace InventaMeCF.Controllers
         public PruebaController(InventaMeCFContext context)
         {
             _context = context;
+            QuestPDF.Settings.License = LicenseType.Community;
         }
         public async Task<IActionResult> Index()
         {
@@ -114,6 +118,20 @@ namespace InventaMeCF.Controllers
             return View(productos);
         }
 
+        [HttpGet(Name = "GenerarRolesPdf")]
+        public IResult GenerarRolesPdf()
+        {
+            Usuario usuario = _context.Usuarios.Find(1);
+            List<Rol> roles = (from r in _context.Roles
+                                join ra in _context.RolesAsignados
+                                on r.Id equals ra.RolId
+                                where ra.UsuarioId == 1
+                                select r).ToList();
+            var data = new TablaRolesModel() { Usuario = usuario, Roles = roles };
+            var document = new TablaRolesDocument(data);
+            var pdfStream = document.GeneratePdf();
+            return Results.File(pdfStream, "application/pdf", "roles_asignados.pdf");
+        }
 
     }
 }
