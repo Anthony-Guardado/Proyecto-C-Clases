@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="bogus" Version="35.6.5" />
+    <PackageReference Include="ClosedXML.Report" Version="0.2.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.*" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.*">
       <PrivateAssets>all</PrivateAssets>
@@ -15,5 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.*" />
+    <PackageReference Include="QuestPDF" Version="2026.7.2" />
   </ItemGroup>
 </Project>

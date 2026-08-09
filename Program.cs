@@ -1,6 +1,8 @@
+using InventaMeCF.Bugus;
 using InventaMeCF.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         option.AccessDeniedPath = "/Home/Privacy";
     });
 
+QuestPDF.Settings.License = LicenseType.Community; // LINEA AGREGADA PARA APLICAR LA LICENCIA.  
+
 var app = builder.Build();
 
 // 👇 BLOQUE 2. Bloque agregado para que se ejecute la migración inicial
@@ -27,7 +31,12 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate();
 }
 // 👆 Bloque agregado para que se ejecute la migración inicial
-
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<InventaMeCFContext>();
+    context.Database.Migrate();
+    await DbSeeder.SeedAsync(context);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

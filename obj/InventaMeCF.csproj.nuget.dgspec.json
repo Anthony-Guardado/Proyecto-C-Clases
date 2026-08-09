@@ -52,6 +52,10 @@
           "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
+            "ClosedXML.Report": {
+              "target": "Package",
+              "version": "[0.2.12, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.*, )"
@@ -71,6 +75,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[9.0.*, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2026.7.2, )"
+            },
+            "bogus": {
+              "target": "Package",
+              "version": "[35.6.5, )"
             }
           },
           "imports": [
