@@ -1,10 +1,13 @@
-﻿using ClosedXML.Excel;
+using ClosedXML.Excel;
 using InventaMeCF.Models;
+using InventaMeCF.Pdf;
 using InventaMeCF.Utilidades;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
 
 
 namespace InventaMeCF.Controllers
@@ -146,6 +149,43 @@ namespace InventaMeCF.Controllers
                     return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Productos.xlsx");
                 }
             }
+        }
+
+        [HttpGet]
+        public async Task<IResult> GenerarVolumenVentasPdf()
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            var datosVentasRaw = await _context.DetalleVentas
+                .Include(dv => dv.Producto)
+                .GroupBy(dv => dv.Producto != null ? dv.Producto.Nombre : "Sin Nombre")
+                .Select(g => new
+                {
+                    Nombre = g.Key ?? "Sin Nombre",
+                    Volumen = g.Sum(x => (int)x.Cantidad),
+                    MontoTotal = g.Sum(x => x.Monto)
+                })
+                .ToListAsync();
+
+            var datosVentas = datosVentasRaw.Select(x => new ItemVolumenVenta
+            {
+                Nombre = x.Nombre,
+                Volumen = x.Volumen,
+                MontoTotal = x.MontoTotal
+            }).ToList();
+
+            var model = new VolumenVentasModel
+            {
+                Titulo = "Reporte de Volumen de Ventas por Producto",
+                FechaGeneracion = DateTime.Now,
+                Items = datosVentas,
+                GranTotal = datosVentas.Sum(x => x.MontoTotal)
+            };
+
+            var document = new VolumenVentasDocument(model);
+            var pdfBytes = document.GeneratePdf();
+
+            return Results.File(pdfBytes, "application/pdf", "VolumenVentas.pdf");
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using InventaMeCF.Seeds;
+using InventaMeCF.Pdf;
+using InventaMeCF.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -21,6 +22,9 @@ namespace InventaMeCF.Models
         public DbSet<Rol> Roles { get; set; }
         public DbSet<RolAsignado> RolesAsignados { get; set; }
 
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -35,6 +39,8 @@ namespace InventaMeCF.Models
             new UsuarioSeed(modelBuilder);
             new RolSeed(modelBuilder);
             new RolAsignadoSeed(modelBuilder);
+            new VentaSeed(modelBuilder);
+            new DetalleVentaSeed(modelBuilder);
 
             /* Configuración de relaciones
             modelBuilder.Entity<RolAsignado>()

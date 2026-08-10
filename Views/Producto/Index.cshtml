@@ -1,4 +1,4 @@
-﻿@model InventaMeCF.Models.ProductoMarcaViewModel
+@model InventaMeCF.Models.ProductoMarcaViewModel
 @using InventaMeCF.Utilidades
 
 @{
@@ -69,11 +69,14 @@
 <!-- Vista parcial de paginación -->
 <partial name="_PaginacionV3" model="@paginacion" />
 
-<div class="shadow-none p-3 mb-5 bg-light rounded mt-3">
+<div class="shadow-none p-3 mb-5 bg-light rounded mt-3 d-flex gap-2">
     <form asp-controller="Producto" asp-action="ExportarXLSX" method="post">
         <input type="hidden" name="id" value="1" />
         <button type="submit" class="btn btn-success">
             <i class="bi bi-filetype-xlsx" style="width: 1em;"></i>&nbsp;Exportar XLSX
         </button>
     </form>
+    <a asp-controller="Producto" asp-action="GenerarVolumenVentasPdf" target="_blank" class="btn btn-danger">
+        <i class="bi bi-filetype-pdf" style="width: 1em;"></i>&nbsp;Exportar PDF (Gráfico)
+    </a>
 </div>
