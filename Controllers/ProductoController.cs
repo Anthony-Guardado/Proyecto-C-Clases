@@ -55,19 +55,48 @@ namespace InventaMeCF.Controllers
 
             return View(productoMarcaVM);
         }*/
-        // GET: Productos
-        public async Task<IActionResult> Index(int pg = 1)
+
+        public async Task<IActionResult> Index(int pg = 1, int? productoMarca = null, string? cadenaBusqueda = null)
         {
-            var lista = await _context.Productos.Include(p => p.Marca).ToListAsync();
-            // Inicio paginación.
-            var paginacion = new Paginacion(lista.Count, pg, 1, "Producto", "Index");
+            if (_context.Productos == null)
+            {
+                return Problem("El conjunto 'InventaMeCFContext.Productos' está vacío.");
+            }
+
+            var productos = _context.Productos.Include(p => p.Marca).AsQueryable();
+
+            if (!string.IsNullOrEmpty(cadenaBusqueda))
+            {
+                productos = productos.Where(s => s.Nombre!.ToUpper().Contains(cadenaBusqueda.ToUpper()));
+            }
+
+            if (productoMarca.HasValue && productoMarca.Value != 0)
+            {
+                productos = productos.Where(x => x.MarcaId == productoMarca.Value);
+            }
+
+            var lista = await productos.ToListAsync();
+
+            var paginacion = new PaginacionV3(lista.Count, pg, 20, "Producto");
+
+            // Inicialización segura del diccionario de parámetros
+            paginacion.Parametros ??= new Dictionary<string, string>();
+            paginacion.Parametros["pg"] = pg.ToString();
+            paginacion.Parametros["productoMarca"] = productoMarca?.ToString() ?? "0";
+            paginacion.Parametros["cadenaBusqueda"] = cadenaBusqueda ?? "";
+
             var data = lista.Skip(paginacion.Salto).Take(paginacion.RegistrosPagina).ToList();
             this.ViewBag.Paginacion = paginacion;
-            // fin paginación.
+
+            var listaMarcas = await _context.Marcas.ToListAsync();
+
             var productoMarcaVM = new ProductoMarcaViewModel
             {
-                Marcas = new SelectList(await _context.Marcas.ToListAsync(), "Id", "Name"),
-                Productos = data
+                // Se cambió "Nombre" por "Name" para coincidir con la entidad Marca
+                Marcas = new SelectList(listaMarcas, "Id", "Name"),
+                Productos = data,
+                ProductoMarca = productoMarca,
+                CadenaBusqueda = cadenaBusqueda
             };
 
             return View(productoMarcaVM);
